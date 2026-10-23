@@ -935,6 +935,7 @@ render();
     const vh = innerHeight;
     const prog = document.querySelector('.os-progress');
     if (prog) prog.style.transform = 'scaleX(' + cl(scrollY / Math.max(1, doc.scrollHeight - vh)) + ')';
+    document.querySelectorAll(SEL).forEach(el => { if (!el.classList.contains('is-in')) { const r = el.getBoundingClientRect(); if (r.top < vh * 0.9 && r.bottom > 0) { el.classList.add('is-in'); setTimeout(() => el.classList.add('is-done'), 2600); } } });
     if (reduce) return;
     document.querySelectorAll('.os-portrait img').forEach(el => { const r = el.parentElement.getBoundingClientRect(); const c = cl((vh - r.top) / (vh + r.height)); el.style.translate = '0 ' + (30 - 60 * c).toFixed(1) + 'px'; });
   }
