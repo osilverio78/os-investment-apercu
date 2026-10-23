@@ -350,6 +350,11 @@ html,body{background:#FEF9ED !important;color:#23324D}
         <div style="display: flex; flex-direction: column; gap: 28px;">
           <h2 id="ct-title" class="os-h2" style="margin: 0; font-weight: 400; font-size: clamp(44px, 5vw, 88px); line-height: 1; letter-spacing: -0.02em;">{{t.ctTitle}}</h2>
           <p style="margin: 0; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.5;">{{t.ctText}}</p>
+          <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(35,50,77,0.85); padding-top: 20px;">
+            <span class="os-mono" style="font-size: 0.78em;">{{t.telLabel}}</span>
+            <a href="tel:+33975543048" class="os-link" style="color: #23324D; font-size: 1.6em; letter-spacing: 0.01em;">09 75 54 30 48</a>
+            <span style="font-size: 1.02em; line-height: 1.5; opacity: 0.85;">{{t.telNote}}</span>
+          </div>
         </div>
         <div>
           <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
@@ -405,6 +410,7 @@ html,body{background:#FEF9ED !important;color:#23324D}
           <sc-for list="{{t.nav}}" as="n" hint-placeholder-count="6">
             <a class="os-link" href="{{n.href}}" style="color: #23324D;">{{n.label}}</a>
           </sc-for>
+          <a class="os-link" href="tel:+33975543048" style="color: #23324D;">09 75 54 30 48</a>
           <a class="os-link" href="https://www.linkedin.com/" style="color: #23324D;">LinkedIn ↗</a>
         </nav>
       </div>
@@ -592,6 +598,8 @@ class Component extends DCLogic {
       filterAria: "Filtrer par domaine",
       catAll: "Toutes",
       casTitle: "Cas concrets",
+      telLabel: "Téléphone",
+      telNote: "Laissez un message avec vos coordonnées : l'associé vous rappelle personnellement.",
       chatTitle: "Une question ?",
       chatSub: "Réponses générales · OS Investment",
       chatPh: "Votre question…",
@@ -809,6 +817,8 @@ class Component extends DCLogic {
       filterAria: "Filter by area",
       catAll: "All",
       casTitle: "Case studies",
+      telLabel: "Telephone",
+      telNote: "Leave a message with your details: the partner will call you back personally.",
       chatTitle: "A question?",
       chatSub: "General answers · OS Investment",
       chatPh: "Your question…",
@@ -992,7 +1002,7 @@ class Component extends DCLogic {
         { id: "atouts", q: "Les atouts du cabinet", k: ["force", "atout", "avantage", "difference", "differencie", "pourquoi vous", "pourquoi choisir", "plus value du cabinet", "specificite", "valeur ajoutee", "point fort", "qualite"], a: "Trois choses distinguent le cabinet. Un interlocuteur unique : l'associé suit personnellement chaque dossier. Une double compétence rare d'expert-comptable et de commissaire aux comptes, complétée par une certification d'expert-comptable patrimonial et un certificat exécutif HEC en management. Et un nombre volontairement limité de dirigeants accompagnés, pour leur consacrer le temps que leurs décisions exigent.", next: ["associe", "methode", "zone"] },
         { id: "associe", q: "Qui est l'associé ?", k: ["associe", "olivier", "silverio", "qui etes", "qui est", "fondateur", "parcours", "experience", "cv", "diplome", "formation"], a: "Olivier Silverio est expert-comptable et commissaire aux comptes. Entré dans la profession en 1999, il a fondé un cabinet ayant réuni plus de 400 clients avant de se consacrer à un cercle restreint de dirigeants. Il est titulaire d'un certificat exécutif HEC en management et de la certification d'expert-comptable patrimonial, et a été membre de la Commission départementale des impôts directs et des taxes sur le chiffre d'affaires.", next: ["atouts", "methode", "rdv"] },
         { id: "zone", q: "Où intervenez-vous ?", k: ["geograph", "zone", "region", "ville", "paris", "province", "france", "deplac", "localis", "ou etes", "etes ou", "situe", "base", "implant", "ou intervenez", "secteur geo", "couverture", "loin", "distance", "etranger"], a: "Le cabinet accompagne des dirigeants partout en France. L'organisation des échanges s'adapte à chaque client et à chaque étape de la mission : l'associé convient avec vous des modalités les plus adaptées.", next: ["rdv", "atouts", "clients"] },
-        { id: "rdv", q: "Prendre rendez-vous", k: ["rendez", "rdv", "entretien", "rencontrer", "rencontre", "contacter", "joindre", "telephone", "appeler", "email", "mail", "coordonnee", "premier echange", "quelqu un", "en ligne", "parler", "discuter", "echanger", "humain", "personne", "interlocuteur", "mon dossier", "rappel", "rappeler"], a: "Pour échanger avec l'associé sur votre dossier, le plus simple est de remplir le formulaire de contact en quelques lignes, en indiquant votre téléphone si vous souhaitez être rappelé. L'associé lit chaque demande et vous recontacte personnellement pour convenir d'un premier échange.", cta: true, next: ["delai", "honoraires", "premier"] },
+        { id: "rdv", q: "Prendre rendez-vous", k: ["rendez", "rdv", "entretien", "rencontrer", "rencontre", "contacter", "joindre", "telephone", "appeler", "email", "mail", "coordonnee", "premier echange", "quelqu un", "en ligne", "parler", "discuter", "echanger", "humain", "personne", "interlocuteur", "mon dossier", "rappel", "rappeler"], a: "Pour échanger avec l'associé sur votre dossier, le plus simple est de remplir le formulaire de contact en quelques lignes, en indiquant votre téléphone si vous souhaitez être rappelé, ou d'appeler le 09 75 54 30 48 et de laisser un message. L'associé vous recontacte personnellement pour convenir d'un premier échange.", cta: true, next: ["delai", "honoraires", "premier"] },
         { id: "premier", q: "Le premier échange", k: ["premier rendez", "premier entretien", "gratuit", "sans engagement", "decouverte", "comment ca se passe", "deroule"], a: "Le premier échange sert à comprendre votre situation et vos objectifs, et à vérifier que le cabinet est le bon interlocuteur. Il est sans engagement. Si une mission est engagée, son périmètre et ses honoraires sont précisés dans une lettre de mission.", cta: true, next: ["honoraires", "methode", "delai"] },
         { id: "delai", q: "Délai de réponse", k: ["delai", "rapide", "repondez", "reponse sous", "combien de temps", "urgent", "urgence", "reactivite"], a: "Chaque demande reçue par le formulaire est lue par l'associé, qui revient vers vous rapidement. En cas d'urgence (contrôle fiscal, échéance proche, opération en cours), précisez-le dans votre message.", cta: true, next: ["rdv", "controle"] },
         { id: "honoraires", q: "Les honoraires", k: ["honoraire", "tarif", "prix", "cout", "coute", "combien", "devis", "facturation", "forfait", "budget", "cher"], a: "Les honoraires sont convenus en fonction de la nature des missions et de leur degré de complexité. Ils sont fixés avant tout démarrage dans une lettre de mission, qui précise le périmètre de l'intervention.", cta: true, next: ["premier", "methode"] },
@@ -1030,7 +1040,7 @@ class Component extends DCLogic {
         { id: "atouts", q: "The firm's strengths", k: ["strength", "strong point", "why you", "why choose", "different", "advantage", "added value", "unique", "special"], a: "Three things set the firm apart. A single point of contact: the partner personally handles each file. A rare dual qualification as chartered accountant and statutory auditor, complemented by a wealth-planning certification and an HEC executive certificate in management. And a deliberately limited number of clients, so each decision gets the time it deserves.", next: ["associe", "methode", "zone"] },
         { id: "associe", q: "Who is the partner?", k: ["partner", "olivier", "silverio", "who are you", "who is", "founder", "background", "experience", "qualification", "diploma"], a: "Olivier Silverio is a chartered accountant and statutory auditor. He entered the profession in 1999 and built a firm serving more than 400 clients before devoting his practice to a select circle of business owners. He holds an HEC executive certificate in management and the wealth-planning chartered accountant certification, and is a former member of the Departmental Commission for Direct Taxes and Turnover Taxes.", next: ["atouts", "methode", "rdv"] },
         { id: "zone", q: "Where do you work?", k: ["where are you", "based", "where", "area", "region", "city", "paris", "france", "travel", "location", "located", "coverage", "abroad", "distance"], a: "The firm works with business owners throughout France. The way we exchange adapts to each client and each stage of the engagement: the partner agrees with you on the most suitable arrangements.", next: ["rdv", "atouts", "clients"] },
-        { id: "rdv", q: "Book a meeting", k: ["meeting", "appointment", "meet", "contact", "reach", "phone", "call", "email", "first exchange", "someone", "talk", "speak", "discuss", "human", "person", "my file", "call back"], a: "The simplest way is to fill in the contact form in a few lines. The partner reads every request and gets back to you personally to arrange a first conversation.", cta: true, next: ["delai", "honoraires", "premier"] },
+        { id: "rdv", q: "Book a meeting", k: ["meeting", "appointment", "meet", "contact", "reach", "phone", "call", "email", "first exchange", "someone", "talk", "speak", "discuss", "human", "person", "my file", "call back"], a: "The simplest way is to fill in the contact form in a few lines, or to call +33 9 75 54 30 48 and leave a message. The partner gets back to you personally to arrange a first conversation.", cta: true, next: ["delai", "honoraires", "premier"] },
         { id: "premier", q: "The first conversation", k: ["first meeting", "free", "no commitment", "obligation", "how does it work", "initial"], a: "The first conversation is used to understand your situation and objectives, and to check that the firm is the right fit. It carries no commitment. If an engagement follows, its scope and fees are set out in an engagement letter.", cta: true, next: ["honoraires", "methode", "delai"] },
         { id: "delai", q: "Response time", k: ["how long", "quick", "fast", "response time", "urgent", "urgency", "reply"], a: "Every request received through the form is read by the partner, who gets back to you promptly. If the matter is urgent (tax audit, imminent deadline, ongoing deal), say so in your message.", cta: true, next: ["rdv", "controle"] },
         { id: "honoraires", q: "Fees", k: ["fee", "price", "cost", "rate", "quote", "how much", "budget", "expensive", "billing"], a: "Fees are agreed according to the nature of each engagement and its complexity. They are set before any work begins in an engagement letter defining the scope of the work.", cta: true, next: ["premier", "methode"] },
