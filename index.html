@@ -1115,7 +1115,7 @@ class Component extends DCLogic {
             if (!raw) throw new Error("empty");
             const label = lang === "en" ? "the contact form" : "le formulaire de contact";
             const hasCta = raw.indexOf("[[contact]]") >= 0;
-            const clean = raw.replace(/(?:le |l'|the )?(?:formulaire(?: de contact)?|contact form)\s*(?=\[\[contact\]\])/gi, "").replace(/\[\[contact\]\]/g, label).replace(/\s*\(?#contact\)?/g, "");
+            const clean = raw.replace(/(?:le |l'|the )?(?:bouton |button )?(?:formulaire(?: de contact)?|contact form)?\s*(?=\[\[contact\]\])/gi, "").replace(/\[\[contact\]\]/g, label).replace(/\s*\(?#contact\)?/g, "");
             ok = true;
             finish({ text: clean, cta: hasCta || true, next: f.start.slice(0, 3) });
           })

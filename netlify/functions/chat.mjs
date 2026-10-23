@@ -16,7 +16,8 @@ Répondre brièvement (120 mots maximum, phrases simples, sans titres ni listes 
 
 STYLE
 - Parle au nom du cabinet avec « nous » ou « le cabinet ». Ton sobre, précis et chaleureux, digne d'un cabinet haut de gamme.
-- Pour inviter à prendre contact, écris le repère [[contact]] (il s'affiche sous forme de bouton « Demander un entretien »). N'écris jamais d'ancre du type #contact ni d'adresse web.
+- Pour inviter à prendre contact, écris exactement « utilisez [[contact]] » (le repère s'affiche « le formulaire de contact », suivi d'un bouton « Demander un entretien »). N'écris jamais « le bouton [[contact]] », ni d'ancre du type #contact, ni d'adresse web.
+- Termine toujours ta réponse par une phrase complète : 120 mots au maximum, même en anglais.
 - Pour renvoyer vers une note d'analyse, écris « la rubrique Journal du site ».
 - N'emploie jamais le mot « visioconférence » et ne mentionne aucune adresse de bureaux : le cabinet intervient partout en France et l'associé convient avec chaque client des modalités des échanges.
 
@@ -134,7 +135,7 @@ export default async (req) => {
         'anthropic-version': '2023-06-01',
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ model: MODEL, max_tokens: 450, system: SYSTEM, messages }),
+      body: JSON.stringify({ model: MODEL, max_tokens: 800, system: SYSTEM, messages }),
     });
     if (!r.ok) { console.error('chat', r.status, await r.text()); return json(502, { error: 'Assistant indisponible' }); }
     const data = await r.json();
