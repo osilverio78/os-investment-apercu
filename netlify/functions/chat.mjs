@@ -103,7 +103,7 @@ CONTACT
 - Nous accompagnons un nombre limité de dirigeants. Décrivez votre situation en quelques lignes : l'associé vous répond personnellement. Le formulaire demande : nom, société, e-mail, téléphone, situation, taille de l'entreprise, horizon et message.
 - Le cabinet intervient partout en France ; l'associé convient avec chaque client des modalités des échanges.
 - E-mail : o.silverio@os-inv.fr
-- Téléphone : 09 75 54 30 48 (messagerie : le visiteur laisse un message avec ses coordonnées et l'associé le rappelle personnellement). Ne prétends pas qu'une personne répond en direct.`;
+- Ne communique jamais de numéro de téléphone : la prise de contact se fait uniquement par le formulaire.`;
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
