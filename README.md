@@ -9,7 +9,7 @@ Site vitrine du Cabinet OS Investment (expertise comptable, commissariat aux com
 
 ## Hébergement
 - GitHub Pages : https://osilverio78.github.io/os-investment-apercu/ (statique, sans IA).
-- Netlify (avec l'assistant IA) : site relié à ce dépôt, adresse prévue `os-investment-apercu.netlify.app`.
+- Netlify (avec l'assistant IA) : https://os-investment.fr (alias : www.os-investment.fr, os-inv.fr, www.os-inv.fr, os-investment-apercu.netlify.app).
 
 ## Variables d'environnement Netlify
 | Nom | Rôle |
