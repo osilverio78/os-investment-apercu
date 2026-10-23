@@ -79,7 +79,7 @@ html{scroll-behavior:smooth}
 
 @keyframes osUp{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
 
-@media (prefers-reduced-motion: reduce){.os-node,.os-card,.os-zoom svg,.os-arr,.os-cta svg,.os-portrait img{transition:none !important}.os-word{animation:none !important;opacity:1 !important}.os-spin,.os-marquee,.os-flow,.os-float,.os-aurora,.os-globe{animation:none !important}}
+@media (prefers-reduced-motion: reduce){.os-node,.os-card,.os-zoom svg,.os-arr,.os-cta svg,.os-portrait img{transition:none !important}.os-spin,.os-marquee,.os-flow,.os-float,.os-aurora,.os-globe{animation:none !important}}
 @media (max-width: 720px){
   .os-sun{aspect-ratio:auto !important;display:flex !important;flex-direction:column !important;gap:18px !important}
   .os-ray,.os-orbit,.os-rays{display:none !important}
@@ -919,7 +919,7 @@ render();
 (function(){
   const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const doc = document.documentElement;
-  if (!reduce) doc.classList.add('js-anim');
+  doc.classList.add('js-anim');
   const cl = (v) => Math.max(0, Math.min(1, v));
   const SEL = '.os-reveal,.os-h2,.os-sunin,.os-band,.os-slide,.os-qt';
   const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => {
