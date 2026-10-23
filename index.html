@@ -408,44 +408,23 @@ html,body{background:#FEF9ED !important;color:#23324D}
           <a class="os-link" href="https://www.linkedin.com/" style="color: #23324D;">LinkedIn ↗</a>
         </nav>
       </div>
-      <p style="margin: 0; font-size: 0.95em; line-height: 1.6; max-width: 1100px;">{{t.legal}}</p>
+      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.95em; line-height: 1.6; max-width: 1100px;">
+        <p style="margin: 0;"><strong style="font-weight: 500;">Cabinet OS Investment</strong> {{t.legal1}}</p>
+        <p style="margin: 0;">{{t.legal2}}</p>
+        <p style="margin: 0;">{{t.legal3}}</p>
+      </div>
       <div class="os-mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.76em;">
         <span>© 2026 OS Investment</span>
         <span style="display: flex; gap: 18px; flex-wrap: wrap;">
-          <a class="os-link" href="#legal" onClick="{{openMentions}}" style="color: #23324D;">{{t.lMentions}}</a>
-          <a class="os-link" href="#legal" onClick="{{openPrivacy}}" style="color: #23324D;">{{t.lPrivacy}}</a>
-          <a class="os-link" href="#legal" onClick="{{openCookies}}" style="color: #23324D;">{{t.lCookies}}</a>
+          <a class="os-link" href="mentions-legales.html" style="color: #23324D;">{{t.lMentions}}</a>
+          <a class="os-link" href="conditions-generales.html" style="color: #23324D;">{{t.lCgv}}</a>
+          <a class="os-link" href="confidentialite.html" style="color: #23324D;">{{t.lPrivacy}}</a>
         </span>
       </div>
     </div>
   </footer>
 
 
-  <sc-if value="{{hasLegal}}" hint-placeholder-val="{{false}}">
-    <div style="position: fixed; inset: 0; z-index: 40; background: rgba(35,50,77,0.45); display: flex; justify-content: flex-end;">
-      <button type="button" aria-label="{{t.close}}" onClick="{{closeLegal}}" style="all: unset; position: absolute; inset: 0; cursor: pointer;"></button>
-      <article role="dialog" aria-modal="true" aria-labelledby="legal-title" class="os-panel" style="position: relative; width: 680px; max-width: 100%; height: 100%; overflow-y: auto; background: #FEF9ED; padding: 36px 44px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-            <sc-for list="{{legalTabs}}" as="lt" hint-placeholder-count="3">
-              <button type="button" class="os-tag os-mono" onClick="{{lt.pick}}" aria-pressed="{{lt.on}}" style="cursor: pointer; border: 0; border-radius: 3px; padding: 7px 11px; font-size: 0.72em; background: {{lt.bg}}; color: {{lt.fg}};">{{lt.l}}</button>
-            </sc-for>
-          </div>
-          <button class="os-btn" type="button" onClick="{{closeLegal}}" aria-label="{{t.close}}" style="cursor: pointer; border: 0; background: #F2EADB; border-radius: 4px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #23324D;">
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-          </button>
-        </div>
-        <h3 id="legal-title" style="margin: 0; font-weight: 400; font-size: 2.4em; line-height: 1.1;">{{legalDoc.title}}</h3>
-        <span class="os-mono" style="font-size: 0.72em; opacity: 0.8;">{{t.legalUpd}}</span>
-        <sc-for list="{{legalDoc.secs}}" as="lg" hint-placeholder-count="4">
-          <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(35,50,77,0.25); padding-top: 14px;">
-            <h4 class="os-mono" style="margin: 0; font-size: 0.78em; font-weight: 500;">{{lg.h}}</h4>
-            <p style="margin: 0; font-size: 1.05em; line-height: 1.6;">{{lg.p}}</p>
-          </div>
-        </sc-for>
-      </article>
-    </div>
-  </sc-if>
 
   <sc-if value="{{hasNote}}" hint-placeholder-val="{{false}}">
     <div style="position: fixed; inset: 0; z-index: 40; background: rgba(35,50,77,0.45); display: flex; justify-content: flex-end;">
@@ -618,8 +597,11 @@ class Component extends DCLogic {
       filterAria: "Filtrer par domaine",
       catAll: "Toutes",
       casTitle: "Cas concrets",
-      legalDocs: {"mentions": {"title": "Mentions légales", "secs": [{"h": "Éditeur", "p": "OS INVESTMENT, société à responsabilité limitée d'expertise comptable et de commissariat aux comptes au capital de 2 075 000 €, dont le siège est situé 38 rue de Berri, 75008 Paris, immatriculée au RCS de Paris sous le numéro 887 535 458. TVA intracommunautaire : FR36 887 535 458. Téléphone : 09 75 54 30 48. E-mail : o.silverio@os-inv.fr."}, {"h": "Directeur de la publication", "p": "Olivier Silverio, gérant."}, {"h": "Professions réglementées", "p": "OS INVESTMENT est inscrite au Tableau de l'Ordre des experts-comptables de Paris Île-de-France (n° 14-00022111-01) et à la Compagnie régionale des commissaires aux comptes de Paris (n° 4100091251). Titres professionnels d'expert-comptable et de commissaire aux comptes délivrés en France. Règles professionnelles : ordonnance n° 45-2138 du 19 septembre 1945 et décret n° 2012-432 du 30 mars 2012 (expertise comptable) ; code de commerce et code de déontologie de la profession de commissaire aux comptes."}, {"h": "Assurance responsabilité civile professionnelle", "p": "MMA IARD, contrat n° 127 124 866, couverture géographique : France."}, {"h": "Hébergeur", "p": "Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis."}]}, "privacy": {"title": "Confidentialité", "secs": [{"h": "Responsable du traitement", "p": "OS INVESTMENT, 38 rue de Berri, 75008 Paris. Contact : o.silverio@os-inv.fr."}, {"h": "Données traitées et finalités", "p": "Demandes adressées par le formulaire de contact (identité, coordonnées, description de la situation) : traitement de la demande, sur la base de mesures précontractuelles et de l'intérêt légitime, conservation 3 ans après le dernier contact. Exécution des missions : sur la base du contrat et des obligations légales, conservation pendant la durée légale de conservation des dossiers. Lutte contre le blanchiment (identification du client et des bénéficiaires effectifs) : obligation légale, conservation 5 ans après la fin de la relation."}, {"h": "Assistant de discussion", "p": "Les messages saisis dans l'assistant sont transmis à notre prestataire d'intelligence artificielle uniquement pour produire la réponse ; ils ne sont pas enregistrés par OS INVESTMENT. N'y indiquez aucune information confidentielle."}, {"h": "Destinataires", "p": "Les données sont réservées à OS INVESTMENT et à ses prestataires techniques : Netlify (hébergement), Anthropic (assistant de discussion) et Microsoft (messagerie). Les transferts hors de l'Union européenne sont encadrés par le Data Privacy Framework UE–États-Unis ou les clauses contractuelles types de la Commission européenne."}, {"h": "Vos droits", "p": "Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, à exercer à l'adresse o.silverio@os-inv.fr. Vous pouvez introduire une réclamation auprès de la CNIL (cnil.fr)."}]}, "cookies": {"title": "Cookies", "secs": [{"h": "Cookies", "p": "Le site n'utilise aucun cookie de mesure d'audience ni de publicité. Le mode lisibilité et la langue choisie ne sont pas conservés d'une visite à l'autre."}]}},
-      legalUpd: "Dernière mise à jour : 23 octobre 2026",
+      legal1: "est exploité par OS INVESTMENT, SARL au capital de 2 075 000 €, 38 rue de Berri, 75008 Paris. RCS Paris 887 535 458 · TVA FR36 887 535 458.",
+      legal2: "Société d'expertise comptable inscrite au Tableau de l'Ordre Paris Île-de-France (n° 14-00022111-01) · Société de commissaires aux comptes membre de la Compagnie régionale de Paris (n° 4100091251).",
+      legal3: "Contact : o.silverio@os-inv.fr · Assurance responsabilité civile professionnelle : MMA IARD, contrat n° 127 124 866, couverture France.",
+      lCgv: "Conditions générales",
+      lPrivacy: "Politique de confidentialité",
       chatTitle: "Une question ?",
       chatSub: "Réponses générales · OS Investment",
       chatPh: "Votre question…",
@@ -782,7 +764,6 @@ class Component extends DCLogic {
       sentText: "Merci. Votre demande nous est bien parvenue : l'associé revient vers vous personnellement.",
       legal: "OS INVESTMENT, SARL d'expertise comptable et de commissariat aux comptes au capital de 2 075 000 €, 38 rue de Berri, 75008 Paris · RCS Paris 887 535 458 · Société d'expertise comptable inscrite au Tableau de l'Ordre Paris Île-de-France (n° 14-00022111-01) · Société de commissaires aux comptes membre de la Compagnie régionale de Paris (n° 4100091251) · Assurance responsabilité civile professionnelle : MMA IARD, contrat n° 127 124 866, couverture France.",
       lMentions: "Mentions légales",
-      lPrivacy: "Confidentialité",
       lCookies: "Cookies",
       a11y: "Mode lisibilité",
       on: "On",
@@ -837,8 +818,11 @@ class Component extends DCLogic {
       filterAria: "Filter by area",
       catAll: "All",
       casTitle: "Case studies",
-      legalDocs: {"mentions": {"title": "Legal notice", "secs": [{"h": "Publisher", "p": "OS INVESTMENT, limited liability company (SARL) carrying on chartered accountancy and statutory audit, with share capital of €2,075,000, registered office at 38 rue de Berri, 75008 Paris, registered with the Paris Trade and Companies Register under number 887 535 458. EU VAT number: FR36 887 535 458. Telephone: +33 9 75 54 30 48. E-mail: o.silverio@os-inv.fr."}, {"h": "Publication director", "p": "Olivier Silverio, managing director."}, {"h": "Regulated professions", "p": "OS INVESTMENT is registered with the Ordre des experts-comptables Paris Île-de-France (no. 14-00022111-01) and with the Compagnie régionale des commissaires aux comptes de Paris (no. 4100091251). Professional titles of chartered accountant (expert-comptable) and statutory auditor (commissaire aux comptes) granted in France. Professional rules: ordinance no. 45-2138 of 19 September 1945 and decree no. 2012-432 of 30 March 2012 (chartered accountancy); French Commercial Code and code of ethics of statutory auditors."}, {"h": "Professional liability insurance", "p": "MMA IARD, policy no. 127 124 866, geographic cover: France."}, {"h": "Host", "p": "Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, United States."}]}, "privacy": {"title": "Privacy", "secs": [{"h": "Data controller", "p": "OS INVESTMENT, 38 rue de Berri, 75008 Paris. Contact: o.silverio@os-inv.fr."}, {"h": "Data processed and purposes", "p": "Requests sent through the contact form (identity, contact details, description of the situation): handling of the request, on the basis of pre-contractual measures and legitimate interest, kept 3 years after the last contact. Performance of engagements: on the basis of the contract and legal obligations, kept for the legal retention period of files. Anti-money laundering (identification of the client and beneficial owners): legal obligation, kept 5 years after the end of the relationship."}, {"h": "Chat assistant", "p": "Messages typed in the assistant are sent to our artificial intelligence provider solely to produce the answer; they are not stored by OS INVESTMENT. Do not enter any confidential information."}, {"h": "Recipients", "p": "Data is reserved for OS INVESTMENT and its technical providers: Netlify (hosting), Anthropic (chat assistant) and Microsoft (e-mail). Transfers outside the European Union are covered by the EU–US Data Privacy Framework or the European Commission's standard contractual clauses."}, {"h": "Your rights", "p": "You have the right of access, rectification, erasure, restriction, objection and portability, which you can exercise at o.silverio@os-inv.fr. You may lodge a complaint with the CNIL (cnil.fr)."}]}, "cookies": {"title": "Cookies", "secs": [{"h": "Cookies", "p": "The site uses no audience measurement or advertising cookies. Readability mode and the chosen language are not kept from one visit to the next."}]}},
-      legalUpd: "Last updated: 23 October 2026",
+      legal1: "is operated by OS INVESTMENT, SARL with share capital of €2,075,000, 38 rue de Berri, 75008 Paris. RCS Paris 887 535 458 · VAT FR36 887 535 458.",
+      legal2: "Chartered accountancy firm registered with the Ordre des experts-comptables Paris Île-de-France (no. 14-00022111-01) · Statutory audit firm, member of the Compagnie régionale de Paris (no. 4100091251).",
+      legal3: "Contact: o.silverio@os-inv.fr · Professional liability insurance: MMA IARD, policy no. 127 124 866, cover: France.",
+      lCgv: "Terms and conditions",
+      lPrivacy: "Privacy policy",
       chatTitle: "A question?",
       chatSub: "General answers · OS Investment",
       chatPh: "Your question…",
@@ -1001,7 +985,6 @@ class Component extends DCLogic {
       sentText: "Thank you. Your request has reached us and the partner will get back to you personally.",
       legal: "OS INVESTMENT, SARL (chartered accountancy and statutory audit firm) with share capital of €2,075,000, 38 rue de Berri, 75008 Paris · RCS Paris 887 535 458 · Chartered accountancy firm registered with the Ordre des experts-comptables Paris Île-de-France (no. 14-00022111-01) · Statutory audit firm, member of the Compagnie régionale de Paris (no. 4100091251) · Professional liability insurance: MMA IARD, policy no. 127 124 866, cover: France.",
       lMentions: "Legal notice",
-      lPrivacy: "Privacy",
       lCookies: "Cookies",
       a11y: "Readability mode",
       on: "On",
@@ -1279,13 +1262,6 @@ class Component extends DCLogic {
       hasNote: !!noteItem,
       note: noteItem || { t: "", tag: "", r: "", lead: "", sec: [], take: "" },
       closeNote: () => this.setState({ note: null }),
-      hasLegal: !!this.state.legal,
-      legalDoc: t.legalDocs[this.state.legal || "mentions"],
-      legalTabs: ["mentions", "privacy", "cookies"].map((k) => ({ l: t.legalDocs[k].title, on: this.state.legal === k, bg: this.state.legal === k ? "#23324D" : "#F2EADB", fg: this.state.legal === k ? "#FEF9ED" : "#23324D", pick: () => this.setState({ legal: k }) })),
-      openMentions: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ legal: "mentions" }); },
-      openPrivacy: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ legal: "privacy" }); },
-      openCookies: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ legal: "cookies" }); },
-      closeLegal: () => this.setState({ legal: null }),
       ...chat
     };
   }
