@@ -7,7 +7,7 @@
 const MODEL = 'claude-haiku-5-5';
 const MAX_TURNS = 10;
 const MAX_CHARS = 800;
-const DEFAULT_HOSTS = ['os-investment-apercu.netlify.app', 'osilverio78.github.io'];
+const DEFAULT_HOSTS = ['www.os-inv.fr', 'os-inv.fr', 'os-investment-apercu.netlify.app', 'osilverio78.github.io'];
 
 const SYSTEM = `Tu es l'assistant automatique du site du Cabinet OS Investment, société d'expertise comptable et de commissariat aux comptes dirigée par Olivier Silverio, expert-comptable et commissaire aux comptes.
 
