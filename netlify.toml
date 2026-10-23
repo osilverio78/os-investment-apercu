@@ -10,3 +10,28 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Adresse principale : https://os-investment.fr — les autres domaines y renvoient (301).
+[[redirects]]
+  from = "https://os-inv.fr/*"
+  to = "https://os-investment.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.os-inv.fr/*"
+  to = "https://os-investment.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://os-inv.fr/*"
+  to = "https://os-investment.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.os-inv.fr/*"
+  to = "https://os-investment.fr/:splat"
+  status = 301
+  force = true
