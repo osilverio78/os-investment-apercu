@@ -1,0 +1,1 @@
+{ "name": "os-investment-apercu", "private": true, "type": "module", "engines": { "node": ">=20" } }
