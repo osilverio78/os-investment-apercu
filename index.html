@@ -1,9 +1,15 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="color-scheme" content="only light"><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8"><meta name="color-scheme" content="only light">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OS Investment — site</title>
+<title>Cabinet OS Investment – Expertise comptable &amp; Commissariat aux comptes</title>
+<meta name="description" content="Cabinet OS Investment : expertise comptable et commissariat aux comptes, fiscalité et conseil au dirigeant. Un associé, un accompagnement personnel, partout en France.">
+<link rel="canonical" href="https://os-investment.fr/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://os-investment.fr/">
+<meta property="og:title" content="Cabinet OS Investment – Expertise comptable &amp; Commissariat aux comptes">
+<meta property="og:description" content="Cabinet OS Investment : expertise comptable et commissariat aux comptes, fiscalité et conseil au dirigeant. Un associé, un accompagnement personnel, partout en France."><meta property="og:locale" content="fr_FR">
+<link rel="icon" href="/img/logo.webp" type="image/webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Red+Hat+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -354,6 +360,7 @@ html,body{background:#FEF9ED !important;color:#23324D}
         <div>
           <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
             <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 18px;">
+              <input type="hidden" name="form-name" value="contact"><p style="position: absolute; left: -9999px;" aria-hidden="true"><label>Ne pas remplir <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
               <div class="os-g2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
                 <label style="display: flex; flex-direction: column; gap: 8px;"><span class="os-mono" style="font-size: 0.76em;">{{t.fName}}</span><input class="os-input" type="text" name="name" autocomplete="name" required=""></label>
                 <label style="display: flex; flex-direction: column; gap: 8px;"><span class="os-mono" style="font-size: 0.76em;">{{t.fCompany}}</span><input class="os-input" type="text" name="company" autocomplete="organization"></label>
@@ -373,7 +380,7 @@ html,body{background:#FEF9ED !important;color:#23324D}
               </div>
               <label style="display: flex; flex-direction: column; gap: 8px;"><span class="os-mono" style="font-size: 0.76em;">{{t.fMessage}}</span><textarea class="os-input" name="message" rows="5"></textarea></label>
               <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
-                <span style="font-size: 1em; font-style: italic; max-width: 340px;">{{t.fNote}}</span>
+                <span style="font-size: 1em; font-style: italic; max-width: 340px;">{{t.fNote}}<sc-if value="{{formErr}}" hint-placeholder-val="{{false}}"><br><b role="alert" style="font-style: normal; color: #A4452A;">{{t.fErr}}</b></sc-if></span>
                 <div style="display: flex; gap: 4px;">
                   <button class="os-btn os-mono" type="submit" style="cursor: pointer; border: 0; background: #23324D; color: #FEF9ED; border-radius: 24px; padding: 13px 38px; min-height: 44px; font-size: 0.76em;">{{t.fSubmit}}</button>
                   <span aria-hidden="true" style="background: #23324D; color: #FEF9ED; border-radius: 4px; width: 44px; display: flex; align-items: center; justify-content: center;">
@@ -405,7 +412,7 @@ html,body{background:#FEF9ED !important;color:#23324D}
           <sc-for list="{{t.nav}}" as="n" hint-placeholder-count="6">
             <a class="os-link" href="{{n.href}}" style="color: #23324D;">{{n.label}}</a>
           </sc-for>
-          <a class="os-link" href="https://www.linkedin.com/" style="color: #23324D;">LinkedIn ↗</a>
+          <a class="os-link" href="https://www.linkedin.com/in/olivier-silverio-2433868b/" target="_blank" rel="noopener" style="color: #23324D;">LinkedIn ↗</a>
         </nav>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.95em; line-height: 1.6; max-width: 1100px; white-space: pre-line;">
@@ -537,6 +544,7 @@ html,body{background:#FEF9ED !important;color:#23324D}
 
 </div>
 </template>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="company"><input name="email"><input name="phone"><input name="situation"><input name="size"><input name="horizon"><textarea name="message"></textarea><input name="bot-field"></form>
 <div id="app"></div>
 <script>
 class DCLogic { constructor(props){ this.props = props || {}; this.state = {}; } setState(o){ Object.assign(this.state, o); scheduleRender(); } }
@@ -760,6 +768,7 @@ class Component extends DCLogic {
       fMessage: "Votre message",
       fNote: "Premier échange sans engagement.",
       fSubmit: "Envoyer",
+      fErr: "L'envoi n'a pas abouti. Merci de réessayer dans un instant ou d'écrire à o.silverio@os-inv.fr.",
       sentLabel: "Demande reçue",
       sentText: "Merci. Votre demande nous est bien parvenue : l'associé revient vers vous personnellement.",
       lMentions: "Mentions légales",
@@ -980,6 +989,7 @@ class Component extends DCLogic {
       fMessage: "Your message",
       fNote: "First conversation without commitment.",
       fSubmit: "Send",
+      fErr: "Sending failed. Please try again in a moment or write to o.silverio@os-inv.fr.",
       sentLabel: "Request received",
       sentText: "Thank you. Your request has reached us and the partner will get back to you personally.",
       lMentions: "Legal notice",
@@ -1250,7 +1260,16 @@ class Component extends DCLogic {
       setEn: () => this.setState({ lang: "en" }),
       sent: this.state.sent,
       notSent: !this.state.sent,
-      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      formErr: !!this.state.formErr,
+      submit: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const f = e && e.currentTarget; if (!f || this.state.sending) return;
+        const body = new URLSearchParams(new FormData(f)).toString();
+        this.setState({ sending: true, formErr: false });
+        fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body })
+          .then(r => { if (!r.ok) throw new Error(r.status); this.setState({ sent: true, sending: false }); })
+          .catch(() => this.setState({ formErr: true, sending: false }));
+      },
       big,
       rootClass: big ? "os-root os-big" : "os-root",
       bigState: big ? t.on : t.off,
@@ -1304,7 +1323,7 @@ function render(){
   const vals = comp.renderVals();
   const html = ser(tpl, [vals]);
   const next = document.createElement("div"); next.id = "app"; next.innerHTML = html;
-  setTimeout(() => window.__osScrollUpdate && window.__osScrollUpdate(), 0); morphdom(root, next, { onBeforeElUpdated(from, to){ if (from.classList) { ["is-in","is-done"].forEach(c => { if (from.classList.contains(c)) to.classList.add(c); }); }  return true; } });
+  setTimeout(() => window.__osScrollUpdate && window.__osScrollUpdate(), 0); morphdom(root, next, { onBeforeElUpdated(from, to){ if (from.form && from.form.querySelector('input[name="form-name"]') && /^(INPUT|TEXTAREA|SELECT)$/.test(from.tagName)) return false; if (from.classList) { ["is-in","is-done"].forEach(c => { if (from.classList.contains(c)) to.classList.add(c); }); }  return true; } });
 }
 function wrap(e, el){ return new Proxy(e, { get(t, k){ if (k === "currentTarget") return el; const v = t[k]; return typeof v === "function" ? v.bind(t) : v; } }); }
 function fire(type, e, el){ const id = el.getAttribute("data-h-" + type); const fn = H.get(id); if (fn) fn(wrap(e, el)); }
